@@ -1,0 +1,54 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  googleCloudBuild:
+    projectId: tickectapp-dev
+  artifacts:
+    - image: us.gcr.io/tickectapp-dev/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: us.gcr.io/tickectapp-dev/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "**/*.js"
+            dest: .
+    - image: us.gcr.io/tickectapp-dev/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: us.gcr.io/tickectapp-dev/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+# build:
+#   local:
+#     push: false
+#   artifacts:
+#     - image: maitrikpatel2025/auth
+#       context: auth
+#       docker:
+#         dockerfile: Dockerfile
+#       sync:
+#         manual:
+#           - src: "src/**/*.ts"
+#             dest: .
