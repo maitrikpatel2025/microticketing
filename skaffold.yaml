@@ -6,9 +6,9 @@ deploy:
       - ./infra/k8s/*
 build:
   googleCloudBuild:
-    projectId: tickectapp-dev
+    projectId: microticketing
   artifacts:
-    - image: us.gcr.io/tickectapp-dev/auth
+    - image: us.gcr.io/microticketing/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -16,7 +16,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/tickectapp-dev/client
+    - image: us.gcr.io/microticketing/client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -24,7 +24,7 @@ build:
         manual:
           - src: "**/*.js"
             dest: .
-    - image: us.gcr.io/tickectapp-dev/tickets
+    - image: us.gcr.io/microticketing/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
@@ -32,13 +32,21 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/tickectapp-dev/orders
+    - image: us.gcr.io/microticketing/orders
       context: orders
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
           - src: "src/**/*.ts"
+            dest: .
+    - image: us.gcr.io/microticketing/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
             dest: .
 # build:
 #   local:

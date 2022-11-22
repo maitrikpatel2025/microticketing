@@ -2,12 +2,12 @@ import mongoose,{ConnectOptions} from 'mongoose';
 import {app} from './app'
 
 const start = async () => {
-  if (!process.env.MONGO_URL)
+  if (!process.env.MONGO_URI)
   {
     throw new Error('MONGO_URL MUST BE DEFINED')
   }
   try {
-    await mongoose.connect(process.env.MONGO_URL, {
+    await mongoose.connect(process.env.MONGO_URI, {
     UseNewUrlParser: true,
     useUnifiedTopology: true,
     autoIndex: true,

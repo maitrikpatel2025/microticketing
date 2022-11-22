@@ -1,5 +1,5 @@
-import { Publisher,Subjects,TicketUpdatedEvent } from '@microticketingapp/common';
+import { Publisher, Subjects, TicketUpdatedEvent } from "@microticketingapp/common";
 
-export class TicketUpdatedPublisher extends Publisher<TicketUpdatedEvent>{
-    readonly subject = Subjects.TicketUpdated; 
+export class TicketUpdatedPublisher extends Publisher<TicketUpdatedEvent> {
+  subject: Subjects.TicketUpdated = Subjects.TicketUpdated;
 }

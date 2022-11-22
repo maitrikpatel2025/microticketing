@@ -1,16 +1,17 @@
-import { NotFoundError } from "@microticketingapp/common";
 import express, { Request, Response } from "express";
+import { NotFoundError } from "@microticketingapp/common";
 import { Ticket } from "../models/ticket";
 
 const router = express.Router();
 
-router.get('/api/tickets/:id', async (req:Request,res:Response)=>{
-    const ticket = await Ticket.findById(req.params.id);
-    if (!ticket){
-        throw new NotFoundError();
-    }
+router.get("/api/tickets/:id", async (req: Request, res: Response) => {
+  const ticket = await Ticket.findById(req.params.id);
 
-    res.send(ticket)
-})
+  if (!ticket) {
+    throw new NotFoundError();
+  }
 
-export {router as showTicketRouter}
+  res.send(ticket);
+});
+
+export { router as showTicketRouter };
