@@ -9,7 +9,7 @@ import {
   OrderStatus,
 } from '@microticketingapp/common';
 import { stripe } from '../stripe';
-import { Order } from '../models/orders';
+import { Order } from '../models/order';
 
 const router = express.Router();
 

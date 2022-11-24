@@ -1,21 +1,21 @@
-import { OrderCreatedEvent, OrderStatus } from "@microticketingapp/common";
-import mongoose from "mongoose";
-import { Message } from "node-nats-streaming";
-import { Order } from "../../../models/orders";
-import { natsWrapper } from "../../../nats-wrapper";
-import { OrderCreatedListener } from "../order-created-listener";
+import mongoose from 'mongoose';
+import { Message } from 'node-nats-streaming';
+import { OrderCreatedEvent, OrderStatus } from '@microticketingapp/common';
+import { natsWrapper } from '../../../nats-wrapper';
+import { OrderCreatedListener } from '../order-created-listener';
+import { Order } from '../../../models/order';
 
 const setup = async () => {
   const listener = new OrderCreatedListener(natsWrapper.client);
 
-  const data: OrderCreatedEvent["data"] = {
+  const data: OrderCreatedEvent['data'] = {
     id: new mongoose.Types.ObjectId().toHexString(),
     version: 0,
-    expiresAt: "Adfasd",
-    userId: new mongoose.Types.ObjectId().toHexString(),
-    status: OrderStatus.Complete,
+    expiresAt: 'alskdjf',
+    userId: 'alskdjf',
+    status: OrderStatus.Created,
     ticket: {
-      id: new mongoose.Types.ObjectId().toHexString(),
+      id: 'alskdfj',
       price: 10,
     },
   };
@@ -27,7 +27,8 @@ const setup = async () => {
 
   return { listener, data, msg };
 };
-it("replicates the order info", async () => {
+
+it('replicates the order info', async () => {
   const { listener, data, msg } = await setup();
 
   await listener.onMessage(data, msg);
@@ -37,7 +38,7 @@ it("replicates the order info", async () => {
   expect(order!.price).toEqual(data.ticket.price);
 });
 
-it("acks the message", async () => {
+it('acks the message', async () => {
   const { listener, data, msg } = await setup();
 
   await listener.onMessage(data, msg);

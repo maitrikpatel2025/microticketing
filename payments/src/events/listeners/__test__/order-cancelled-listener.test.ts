@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
 import { Message } from 'node-nats-streaming';
-import { OrderStatus, OrderCancelledEvent } from '@microticketingapp/common';
+import { OrderStatus, OrderCancelledEvent } from '@microticketingapp/common'
 import { OrderCancelledListener } from '../order-cancelled-listener';
 import { natsWrapper } from '../../../nats-wrapper';
-import { Order } from '../../../models/orders';
-
+import { Order } from '../../../models/order';
 
 const setup = async () => {
   const listener = new OrderCancelledListener(natsWrapper.client);
