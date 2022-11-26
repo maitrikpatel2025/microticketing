@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import logo from "../assets/microticket.png";
 
 const Header = ({ currentUser }) => {
   const links = [
@@ -13,6 +15,17 @@ const Header = ({ currentUser }) => {
       href: "/auth/signin",
     },
     currentUser && {
+      icon: "bi bi-ticket",
+      label: "Sell Tickets",
+      href: "/tickets/new",
+    },
+    currentUser && {
+      icon: "bi bi-list-ul",
+      label: "My Orders",
+      href: "/orders",
+    },
+
+    currentUser && {
       icon: "bi bi-box-arrow-right",
       label: "Sign Out",
       href: "/auth/signout",
@@ -21,11 +34,16 @@ const Header = ({ currentUser }) => {
     .filter((linkConfig) => linkConfig)
     .map(({ label, href, icon }) => {
       return (
-        <li key={href} className="nav-item p-2">
-          <Link href={href} className="nav-link fs-6 border border-2 border-primary rounded-pill">
-            {label}
-            {"  "}
-            <i className={icon}></i>
+        <li key={href} className="nav-item p-1 m-2">
+          <Link
+            href={href}
+            className="nav-link fs-5 border border-2 border-white rounded-pill"
+          >
+            <span className="text-white">
+              {label}
+              {"  "}
+              <i className={icon}></i>
+            </span>
           </Link>
         </li>
       );
@@ -33,12 +51,12 @@ const Header = ({ currentUser }) => {
 
   return (
     <div>
-      <nav className="navbar  navbar-light  bg-light" >
-        <div className="container-fluid">
+      <nav className="navbar  navbar-light  bg-dark shadow-sm">
+        <div className="container container-fluid">
           <div className="navbar-header">
-            <Link href="/" className="navbar-brand fs-4">
+            <Link href="/" className="navbar-brand ">
               {" "}
-              MicroTicketing{" "}
+              <Image src={logo} alt="Picture of the author" />
             </Link>
           </div>
           <div>

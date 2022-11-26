@@ -1,7 +1,7 @@
 import Router from "next/router";
 import Link from "next/link";
 import { useState } from "react";
-import styles from "./signup.module.css";
+
 import useRequest from "../../hooks/use-request";
 
 const signup = () => {
@@ -23,11 +23,11 @@ const signup = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={onSubmit}>
-        <div className={styles.container}>
+        <div className="justify-content-center  p-5 shadow-lg p-3 m-5 bg-white rounded">
           <div className="row mb-4">
-            <h2 className="col d-flex justify-content-center">Sign In</h2>
+            <h2 className="col d-flex justify-content-center">Welcome Back</h2>
           </div>
           <div className="form-group">
             <label className="form-label">Email</label>
@@ -53,11 +53,10 @@ const signup = () => {
             <div className="col d-flex justify-content-center"></div>
           </div>
           {errors}
-          <button className={styles.submitButton}>Sign In</button>
-
           <div className="text-center">
-            <p>
-              not a member <Link href="/auth/signup">sign up</Link>
+          <button className="btn btn-dark btn-block"><i className="bi bi-box-arrow-in-right"></i> Sign In</button>
+            <p className="mt-3">
+              not a member <Link href="/auth/signup"> sign up</Link>
             </p>
           </div>
         </div>
