@@ -7,7 +7,7 @@
     </div>
 </div>
 
-> **The major goal of this project is to incorporate the newest technology and architecture, in a distributed system infrastructure. The app is made up of 7 distinct services that work together asynchronously. Services are developed with NextJS (front-end), Express and MongoDB (back-end), and NATS Streaming Server to communicate via events. All of these components run on NodeJS and are written in TypeScript. Each service has its own Docker container, which Kubernetes is in charge of managing. The ingress-nginx controller is used for routing. I won't talk mostly about business.** 🚀
+> **The major goal of this project is to incorporate the newest technology and architecture, in a distributed system infrastructure. The app is made up of 6 distinct services that work together asynchronously. Services are developed with NextJS (front-end), Express and MongoDB (back-end), and NATS Streaming Server to communicate via events. All of these components run on NodeJS and are written in TypeScript. Each service has its own Docker container, which Kubernetes is in charge of managing. The ingress-nginx controller is used for routing. I won't talk mostly about business.** 🚀
 
 ## Overview
 
@@ -20,7 +20,7 @@ App has tickets for events (concerts, sporting events, etc.) can be listed for s
 
 ### Architecture
 
-The app is made up of 7 distinct services that interact asynchronously with one another. TypeScript is used to create the services, which are created with NextJS for the front end, Express and MongoDB for the back end, and NATS Streaming Server for event-based communication. Every service has a separate Docker container that is controlled by Kubernetes. It uses the "ingress-nginx" controller for routing.
+The app is made up of 6 distinct services that interact asynchronously with one another. TypeScript is used to create the services, which are created with NextJS for the front end, Express and MongoDB for the back end, and NATS Streaming Server for event-based communication. Every service has a separate Docker container that is controlled by Kubernetes. It uses the "ingress-nginx" controller for routing.
 
 The shared library '@microticketingapp/common', which is a dependency on all services, contains all essential type definitions. This repository also includes this shared library as a submodule.
 
