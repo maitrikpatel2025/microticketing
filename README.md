@@ -37,3 +37,38 @@ Kubernetes and Docker help to containarize all the services and orchastrate them
 
 ![image](https://user-images.githubusercontent.com/59853047/204151825-3c429811-c8d4-4f24-a3d8-4220ca414ee0.png)
 
+### Deployment
+
+The project uses Skaffold to manage all the Docker containers inside the Kubernetes cluster and streamline the development process.
+
+Make sure Docker, Kubernetes, and Skaffold are installed on your local PC in order to run the app in a development environment.
+
+The Kubernetes cluster's environment variables must be set before the app can run. Run the following commands to set the following environment variables:
+
+```bash
+# kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=<your_stripe_key>
+
+# kubectl create secret generic jwt-secret --from-literal=JWT_KEY=<your_jwt_key>
+
+```
+
+Be sure to expose the ingress-nginx-controller with:
+
+```bash
+# kubectl expose deployment ingress-nginx-contoller --target-port=80 --type=NodePort -n kube-system
+```
+
+Start the app with `skaffold dev`.
+
+### Support
+
+If you like my work, feel free to:
+
+- ⭐ this repository. And we will be happy together :)
+
+Thanks a bunch for supporting me!
+
+### Credit
+(https://www.udemy.com/course/microservices-with-node-js-and-react/)
+
+A massive thanks for a great course! thanks Stephen! I'm planning on starting a project from scratch using this project as a guide to really cement some of the information we've covered here.
