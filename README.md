@@ -34,3 +34,6 @@ List of microservices:
 - `expiration` - Service handling an order expiration time.
 
 Kubernetes and Docker help to containarize all the services and orchastrate them. Each service contains a dockerfile whilst the infra folder contains all the kubernetes manifests for deployments, services, ingress, secrets etc
+
+![image](https://user-images.githubusercontent.com/59853047/204151825-3c429811-c8d4-4f24-a3d8-4220ca414ee0.png)
+
