@@ -18,3 +18,19 @@ Created a multi-service application from scratch. Analyze whether a microservice
 
 App has tickets for events (concerts, sporting events, etc.) can be listed for sale by users. This ticket may be purchased by other users. Anyone with an account can sell tickets and buy tickets. The ticket is "locked" for three minutes when a user tries to buy it. To submit their payment information, the user has three minutes. No other user may buy the ticket while it is locked. The ticket should 'unlock' after 3 minutes. If a ticket's price is not locked, it can be changed and for handling credit card payments the app uses Stripe API.
 
+### Architecture
+
+The app is made up of 7 distinct services that interact asynchronously with one another. TypeScript is used to create the services, which are created with NextJS for the front end, Express and MongoDB for the back end, and NATS Streaming Server for event-based communication. Every service has a separate Docker container that is controlled by Kubernetes. It uses the "ingress-nginx" controller for routing.
+
+The shared library '@microticketingapp/common', which is a dependency on all services, contains all essential type definitions. This repository also includes this shared library as a submodule.
+
+List of microservices:
+
+- `client` - Service responsible for the front-end.
+- `auth` - Service responsible for authentication.
+- `tickets` - Service responsible tickets.
+- `orders` - Service responsible for orders.
+- `payments` - Service managing payments.
+- `expiration` - Service handling an order expiration time.
+
+Kubernetes and Docker help to containarize all the services and orchastrate them. Each service contains a dockerfile whilst the infra folder contains all the kubernetes manifests for deployments, services, ingress, secrets etc
