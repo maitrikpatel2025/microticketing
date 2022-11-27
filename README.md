@@ -1,4 +1,4 @@
-div align="center" style="margin-bottom:20px">
+<div align="center" style="margin-bottom:20px">
   <img src="assets/logo.png" alt="booking-microservices" />
     <div align="center">
            <a href="https://github.com/meysamhadeli/booking-microservices/actions/workflows/dotnet.yml"><img alt="build-status" src="https://github.com/meysamhadeli/booking-microservices/actions/workflows/dotnet.yml/badge.svg?branch=main&style=flat-square"/></a>
