@@ -6,3 +6,15 @@
                  <a href="https://github.com/meysamhadeli/booking-microservices/blob/main/LICENSE"><img alt="build-status"          src="https://img.shields.io/github/license/meysamhadeli/booking-microservices?color=%234275f5&style=flat-square"/></a>
     </div>
 </div>
+
+> **The major goal of this project is to incorporate the newest technology and architecture, in a distributed system infrastructure. The app is made up of 7 distinct services that work together asynchronously. Services are developed with NextJS (front-end), Express and MongoDB (back-end), and NATS Streaming Server to communicate via events. All of these components run on NodeJS and are written in TypeScript. Each service has its own Docker container, which Kubernetes is in charge of managing. The ingress-nginx controller is used for routing. I won't talk mostly about business.** 🚀
+
+## Overview
+
+Created a multi-service application from scratch. Analyze whether a microservices approach is a good fit for your app. Recognize and address the issues with async, event-based service communication. A multi-service app can be deployed to any cloud provider using Docker and Kubernetes. Enhance the productivity and reuse of code in huge projects.
+
+
+### Functionality
+
+App has tickets for events (concerts, sporting events, etc.) can be listed for sale by users. This ticket may be purchased by other users. Anyone with an account can sell tickets and buy tickets. The ticket is "locked" for three minutes when a user tries to buy it. To submit their payment information, the user has three minutes. No other user may buy the ticket while it is locked. The ticket should 'unlock' after 3 minutes. If a ticket's price is not locked, it can be changed and for handling credit card payments the app uses Stripe API.
+
