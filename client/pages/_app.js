@@ -7,7 +7,45 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (
     <div>
       <Head>
+        <meta name="title" content="Microticketing " />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="../favicon_package/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="../favicon_package/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="../favicon_package/favicon-16x16.png"
+        />
+        <link rel="manifest" href="../favicon_package/site.webmanifest" />
+        <link
+          rel="mask-icon"
+          href="../favicon_package/safari-pinned-tab.svg"
+          color="#5bbad5"
+        />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff"></meta>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Build, deploy, and scale an E-Commerce app using Microservices built with Node, React, Docker and Kubernetes"
+        />
+        <meta
+          name="keywords"
+          content="Event-Based Architecture, Server side rendering with React, Scalable, production-ready code, Node, React, Docker and Kubernetes, Redis, Typescript, JWT-based authentication"
+        />
+
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -26,7 +64,7 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
       </Head>
       <Header currentUser={currentUser} />
       <div className="container"></div>
-      <Component currentUser={currentUser} {...pageProps}  />
+      <Component currentUser={currentUser} {...pageProps} />
     </div>
   );
 };
@@ -36,7 +74,8 @@ AppComponent.getInitialProps = async (appContext) => {
   let pageProps = {};
   if (appContext.Component.getInitialProps) {
     pageProps = await appContext.Component.getInitialProps(
-      appContext.ctx, client,
+      appContext.ctx,
+      client,
       data.currentUser
     );
   }
