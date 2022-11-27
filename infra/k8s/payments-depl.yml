@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: payments
-          image: us.gcr.io/microticketing/payments
+          image: maitrikpatel2025/payments
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
