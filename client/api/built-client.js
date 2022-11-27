@@ -6,7 +6,7 @@ export default ({ req }) => {
 
     return axios.create({
       baseURL:
-        'http://microticketapp.click',
+        'http://www.microticketapp.click',
       headers: req.headers,
     });
   } else {
