@@ -6,10 +6,12 @@ deploy:
       - ./infra/k8s/*
       - ./infra/k8s/k8s-dev*
 build:
-  googleCloudBuild:
-    projectId: microticketing
+  # googleCloudBuild:
+  #   projectId: microticketing
+  local:
+    push: false
   artifacts:
-    - image: us.gcr.io/microticketing/auth
+    - image: maitrikpatel2025/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -17,7 +19,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/microticketing/client
+    - image: maitrikpatel2025/client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -25,7 +27,7 @@ build:
         manual:
           - src: "**/*.js"
             dest: .
-    - image: us.gcr.io/microticketing/tickets
+    - image: maitrikpatel2025/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
@@ -33,7 +35,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/microticketing/orders
+    - image: maitrikpatel2025/orders
       context: orders
       docker:
         dockerfile: Dockerfile
@@ -41,7 +43,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/microticketing/expiration
+    - image: maitrikpatel2025/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
@@ -49,7 +51,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/microticketing/payments
+    - image: maitrikpatel2025/payments
       context: payments
       docker:
         dockerfile: Dockerfile
