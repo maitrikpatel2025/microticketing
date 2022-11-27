@@ -28,7 +28,7 @@ const LandingPage = ({ currentUser, tickets }) => {
       <h2 className="col d-flex justify-content-center text-dark border rounded border-2 m-2 p-3">
         " Make Someone Happy With Tickets "
       </h2>
-      <h3 className="col p-1 text-dark">Recently Added</h3>
+      <h3 className="col p-1 text-dark">Recently Added </h3>
       <div className="row  p-2">{ticketList}</div>
     </div>
   );
